@@ -1,4 +1,6 @@
+{% load static %}
 <html>
+    <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
     <body>
         <h1>Dashboard</h1>
         <p>Welcome to the dashboard!</p>
@@ -11,13 +13,24 @@
             <input type="text" name="dept_head" placeholder="Department Head" required>
             <button type="submit">Create Department</button>
             </form>
+        
         {% if depts %}
+        <div class="container">
+
             {% for dep in depts %}
-                <h2>{{ dep.dept_code }}</h2>
-                <p>Department Name: {{ dep.dept_name }}</p>
-                <p>Department ID: {{ dep.dept_id }}</p>
-                <p>Department Head: {{ dep.dept_head }}</p>
+            <div class="card">
+                <div class="dept-head">
+                    <h2>{{ dep.dept_code }}</h2>
+                </div>
+                <div class="card-content">
+                    <p>ID: {{ dep.dept_id }}</p>
+                    <p>Name: {{ dep.dept_name }}</p>
+                    
+                    <p>HOD: {{ dep.dept_head }}</p>
+                </div>
+            </div>
             {% endfor %}
+        </div>
         {% else %}
             <p>No departments found.</p>
         {% endif %}
