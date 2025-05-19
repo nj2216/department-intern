@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <h1>Dashboard</h1>
+        <p>Welcome to the dashboard!</p>
+        <p>Current date and time: {{ current_time }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="dept_code" placeholder="Department Code" required>
+            <input type="text" name="dept_name" placeholder="Department Name" required>
+            <input type="text" name="dept_id" placeholder="Department ID" required>
+            <input type="text" name="dept_head" placeholder="Department Head" required>
+            <button type="submit">Create Department</button>
+            </form>
+        {% if depts %}
+            {% for dep in depts %}
+                <h2>{{ dep.dept_code }}</h2>
+                <p>Department Name: {{ dep.dept_name }}</p>
+                <p>Department ID: {{ dep.dept_id }}</p>
+                <p>Department Head: {{ dep.dept_head }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No departments found.</p>
+        {% endif %}
+    </body>
+</html>
