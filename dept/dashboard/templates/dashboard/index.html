@@ -2,17 +2,18 @@
 <html>
     <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
     <body>
-        <h1>Dashboard</h1>
-        <p>Welcome to the dashboard!</p>
-        <p>Current date and time: {{ current_time }}</p>
-        <form method="POST">
-            {% csrf_token %}
-            <input type="text" name="dept_code" placeholder="Department Code" required>
-            <input type="text" name="dept_name" placeholder="Department Name" required>
-            <input type="text" name="dept_id" placeholder="Department ID" required>
-            <input type="text" name="dept_head" placeholder="Department Head" required>
-            <button type="submit">Create Department</button>
-            </form>
+        <div class="header">
+            <h1>Dashboard</h1>
+            <p>Welcome to the dashboard!</p>
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <input type="text" name="dept_code" placeholder="Department Code" required>
+                <input type="text" name="dept_name" placeholder="Department Name" required>
+                <input type="text" name="dept_id" placeholder="Department ID" required>
+                <input type="text" name="dept_head" placeholder="Department Head" required>
+                <button type="submit">Create Department</button>
+                </form>
+        </div>
         
         {% if depts %}
         <div class="container">
