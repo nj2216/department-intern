@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
+    <body>
+        <div class="header">
+            <h1>Editor</h1>
+            <p>Edit the Department Details of {{dept.dept_id}}</p>
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <input type="text" name="dept_code" value="{{dept.dept_code}}" required>
+                <input type="text" name="dept_name" value="{{dept.dept_name}}" required>
+                <input type="text" name="dept_id" value="{{dept.dept_id}}" required>
+                <input type="text" name="dept_head" value="{{dept.dept_head}}" required>
+                <button type="submit" name="action" value="update">Update</button>
+                <button type="submit" name="action" value="delete">Delete</button>
+
+                </form>
+        </div>
+    </body>
+</html>

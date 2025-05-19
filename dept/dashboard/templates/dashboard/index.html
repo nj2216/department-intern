@@ -19,7 +19,7 @@
         <div class="container">
 
             {% for dep in depts %}
-            <div class="card">
+            <div class="card" onclick="location.href='{% url 'edit' dep.dept_id %}'">
                 <div class="dept-head">
                     <h2>{{ dep.dept_code }}</h2>
                 </div>
