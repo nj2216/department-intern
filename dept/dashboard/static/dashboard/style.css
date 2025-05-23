@@ -89,11 +89,12 @@ button:hover{
     border: #101010 3px solid;
     background-color: #f0f0f0;
     cursor: pointer;
+    transition: 0.2s ease-in;
 }
 .card:hover{
     background-color: #202020;
     color: white;
-    transition: 0.2s ease-in;
+    
 }
 .dept-head{
     font-size: 20px;
